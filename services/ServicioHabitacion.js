@@ -15,7 +15,9 @@ export class ServicioHabitacion{
     return habitaciones
    }
    async modificarHabitacion(id,datos){
-        return await modeloHabitacion.findByIdAndUpdate(id,datos)
+        return await modeloHabitacion.findByIdAndUpdate(id,datos,{new:true})
    }
-   async borrarHabitacion(){}
+   async borrarHabitacion(id) {
+     return await modeloHabitacion.deleteOne({ _id: id })
+ }
 }
